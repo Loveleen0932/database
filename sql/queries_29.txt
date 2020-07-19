@@ -1,0 +1,7 @@
+SELECT * FROM STAFF;
+SELECT NAME, EMAIL, CONTACT FROM STAFF ORDER BY NAME DESC;
+select * from ACTION where deadline between TO_DATE('2020-MAR-01', 'YYYY-MM-DD') and TO_DATE('2020-04-30', 'YYYY-MM-DD') AND OWNER LIKE 'J%';
+select * from STAFF WHERE CITY = 'Melbourne' AND NAME LIKE '%n';
+SELECT * FROM STAFF WHERE CITY <> 'Melbourne' AND NAME LIKE '%n';
+select STAFF.name, TEAM.task_id from STAFF inner join TEAM on STAFF.UUID = TEAM.staff_id;
+select STAFF.name, TEAM.task_id, CONSULTATION.time, CONSULTATION.location from ((STAFF inner join TEAM on STAFF.uuid = TEAM.staff_id) inner join CONSULTATION on TEAM.task_id = CONSULTATION.task_id);

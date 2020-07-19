@@ -1,0 +1,97 @@
+/*--------------------------- CREATE STAFF TABLE --------------------------------------------------------*/
+
+CREATE TABLE STAFF
+   ("UUID" VARCHAR2(20) NOT NULL, 
+	"NAME" VARCHAR2(50) NOT NULL, 
+	"EMAIL" VARCHAR2(50) NOT NULL, 
+	"CONTACT" VARCHAR2(20), 
+	"ADDRESS" VARCHAR2(150),
+	"CITY" VARCHAR2(50),
+	"COUNTRY" VARCHAR2(50),
+	"JOININD_DATE" DATE, 
+	"EXPERIENCE" NUMBER DEFAULT 0, 
+	"GENDER" VARCHAR2(20));
+
+/*---------------------------- CREATE TASK TABLE --------------------------------------------------------*/
+  
+  CREATE TABLE TASK
+   ("UUID" VARCHAR2(20), 
+	"NAME" VARCHAR2(50), 
+	"DESCRIPTION" VARCHAR2(250), 
+	"TIME" VARCHAR2(20), 
+	"BUDGET" NUMBER);
+
+/*---------------------------- CREATE SKILL TABLE -------------------------------------------------------*/
+
+  CREATE TABLE SKILL
+   ("UUID" VARCHAR2(20), 
+	"NAME" VARCHAR2(50) NOT NULL);
+
+
+/*--------------------------- CREATE PHASE TABLE --------------------------------------------------------*/
+  CREATE TABLE PHASE
+   ("UUID" VARCHAR2(20), 
+	"NAME" VARCHAR2(50) NOT NULL);
+
+/*--------------------------- CREATE REQUIREMENT TABLE --------------------------------------------------------*/
+
+  CREATE TABLE REQUIREMENT
+   ("UUID" VARCHAR2(20), 
+	"NAME" VARCHAR2(50), 
+	"DESCRIPTION" VARCHAR2(250), 
+	"COST" NUMBER);
+
+/*--------------------------- CREATE TEAM TABLE --------------------------------------------------------*/
+
+
+  CREATE TABLE TEAM
+   ("UUID" VARCHAR2(20),
+	"STAFF_ID" VARCHAR2(20), 
+	"TASK_ID" VARCHAR2(20));
+
+/*--------------------------- CREATE TASK_EXPENSE TABLE --------------------------------------------------------*/
+
+  CREATE TABLE TASK_EXPENSE 
+   ("UUID" VARCHAR2(20), 
+	"TASK_ID" VARCHAR2(20), 
+	"ITEM_DESCRIPTION" VARCHAR2(250), 
+	"PRICE" NUMBER);
+
+/*--------------------------- CREATE STAFF_SKILL TABLE --------------------------------------------------------*/
+
+  CREATE TABLE STAFF_SKILL 
+   ("STAFF_ID" VARCHAR2(20), 
+	"SKILL_ID" VARCHAR2(20));
+
+/*--------------------------- CREATE TASK_PHASE TABLE --------------------------------------------------------*/
+
+  CREATE TABLE TASK_PHASE 
+   ("TASK_ID" VARCHAR2(20), 
+	"PHASE_ID" VARCHAR2(20));
+
+/*--------------------------- CREATE CONSULTATION TABLE --------------------------------------------------------*/
+
+  CREATE TABLE CONSULTATION 
+   ("UUID" VARCHAR2(20), 
+	"TIME" DATE, 
+	"LOCATION" VARCHAR2(50), 
+	"PHASE_ID" VARCHAR2(20),
+	"TEAM_ID" VARCHAR2(20), 
+	"STAFF_ID" VARCHAR2(20), 
+	"TASK_ID" VARCHAR2(20));
+
+/*--------------------------- CREATE TASK_REQUIREMENT TABLE --------------------------------------------------------*/
+
+  CREATE TABLE TASK_REQUIREMENT 
+   ("UUID" VARCHAR2(20),
+	"TASK_ID" VARCHAR2(20), 
+	"REQUIREMENT_ID" VARCHAR2(20) NOT NULL);
+
+/*--------------------------- CREATE ACTION TABLE --------------------------------------------------------*/
+  
+    CREATE TABLE ACTION 
+   ("UUID" VARCHAR2(20), 
+	"CONSULTATION_ID" VARCHAR2(20), 
+	"OWNER" VARCHAR2(20), 
+	"OUTPUT" VARCHAR2(250), 
+	"DEADLINE" DATE);
